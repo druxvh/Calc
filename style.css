@@ -24,7 +24,7 @@
   height: 80px;
   background-color: #2a2a2a;
   color: #f1f1f1;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: end;
   padding: 0 1rem;
   border: none;
@@ -64,7 +64,7 @@
     border: 0.1px solid black;
     
 }
-.operator {
+.operator , .AC, .delete, .equal {
     background-color: #ff4b4b;
     cursor: pointer;
     /* background-color: #ff6f00; */

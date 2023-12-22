@@ -1,49 +1,45 @@
-// let value = "";
-// let display = document.querySelector("input");
-// let buttons = document.querySelectorAll('button');
-
-// Array.from(buttons).forEach((button) => {
-//   button.addEventListener("click", (btn) => {
-//     if(btn.target.innerHTML == "="){
-//         value = eval(value)
-//         display.value = value
-//     }
-//     else {
-//         value += btn.target.textContent
-//         display.value = value
-
-//     }
-//   });
-// });
-
 let val = "";
-let buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll(".btn");
 let display = document.querySelector("input");
+let operators = document.querySelectorAll(".operator");
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
     if (e.target.textContent == "=") {
       val = eval(val);
       display.value = val;
+      switch (true) {
+        case isNaN(val):
+          alert("The Value is Not a Number");
+          val = "";
+          display.value = val;
+          break;
 
+        case val === undefined:
+          alert("The Value is Undefined");
+          val = "";
+          display.value = val;
+          break;
 
-    } else if(e.target.textContent == "AC"){
-        val = "0"
-        display.value = val
-
-
-    } //else if(e.target.textContent == "Del"){
-        
-            console.log(val)
-            val = val.slice(0, -1)
-            display.value = val
-            console.log(val)
-        
-    //
-}
-    
-    
-    else {
+        case val === Infinity:
+          alert("The Value is Infinity");
+          val = "";
+          display.value = val;
+          break;
+      }
+    } else if (e.target.textContent == "AC") {
+      val = "";
+      display.value = 0;
+    } else if (e.target.textContent == "Del") {
+      val = val.slice(0, -1);
+      // val = val.substring(0, val.length -1)
+      display.value = val;
+      if (val == "") {
+        display.value = 0;
+      } else {
+        return 0;
+      }
+    } else {
       val += e.target.textContent;
       display.value = val;
     }
