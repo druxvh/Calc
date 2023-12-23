@@ -35,7 +35,7 @@ Array.from(buttons).forEach((button) => {
     
     } else if (e.target.textContent == "AC") {
       val = "";
-      display.value = "0";
+      display.value = 0;
     } else if (e.target.textContent == "Del") {
       val = val.slice(0, -1);
       display.value = val;
